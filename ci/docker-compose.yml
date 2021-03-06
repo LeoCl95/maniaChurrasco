@@ -1,0 +1,30 @@
+version: '3'
+services:
+  db:
+    image: postgres:10.4
+    container_name: db
+    environment:
+      - POSTGRES_USER=maniachurrasco
+      - POSTGRES_PASSWORD=R2D2C3PO
+      - POSTGRES_DB=maniachurrasco
+    ports:
+      - 5432:5432
+    restart: always
+    networks:
+      - postgres-compose-network
+
+  pgadmin-compose:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "leocena95@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "R2D2C3PO"
+    ports:
+      - "16543:80"
+    depends_on:
+      - db
+    networks:
+      - postgres-compose-network
+
+networks:
+  postgres-compose-network:
+    driver: bridge
