@@ -19,9 +19,13 @@ public class OrderController implements OrderApi {
     }
 
     @Override
-    public ResponseEntity<Void> createOrder(OrderRequest order) {
-        orderRepositoryPort.insertOrder(order);
+    public ResponseEntity<Void> createOrder(OrderRequest order) throws Exception {
+        try {
+            orderRepositoryPort.insertOrder(order);
 
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
     }
 }

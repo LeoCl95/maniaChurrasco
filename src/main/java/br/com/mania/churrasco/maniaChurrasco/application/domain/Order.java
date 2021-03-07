@@ -4,6 +4,7 @@ package br.com.mania.churrasco.maniaChurrasco.application.domain;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "Orders")
 public class Order {
 
     @Id

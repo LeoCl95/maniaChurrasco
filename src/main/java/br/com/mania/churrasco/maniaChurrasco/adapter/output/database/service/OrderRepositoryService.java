@@ -18,10 +18,14 @@ public class OrderRepositoryService implements OrderRepositoryPort {
     }
 
     @Override
-    public void insertOrder(OrderRequest order) {
-        Order orderDb = new Order();
-        orderDb.setName(order.getName());
+    public void insertOrder(OrderRequest order) throws Exception {
+        try {
+            Order orderDb = new Order();
+            orderDb.setName(order.getName());
 
-        orderRepository.save(orderDb);
+            orderRepository.save(orderDb);
+        } catch (Exception e) {
+            throw new Exception();
+        }
     }
 }

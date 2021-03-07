@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface OrderRepositoryPort {
 
-    void insertOrder (OrderRequest order);
+    void insertOrder (OrderRequest order) throws Exception;
 }

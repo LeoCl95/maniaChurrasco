@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.*;
 public interface OrderApi {
 
     @PostMapping
-    ResponseEntity<Void> createOrder(@RequestBody OrderRequest order);
+    ResponseEntity<Void> createOrder(@RequestBody OrderRequest order) throws Exception;
 
 }
