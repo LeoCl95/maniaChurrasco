@@ -23,7 +23,7 @@ public class OrderController implements OrderApi {
         try {
             orderRepositoryPort.insertOrder(order);
 
-            return new ResponseEntity<>(HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
