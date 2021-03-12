@@ -21,7 +21,14 @@ public class OrderRepositoryService implements OrderRepositoryPort {
     public void insertOrder(OrderRequest order) throws Exception {
         try {
             Order orderDb = new Order();
-            orderDb.setName(order.getName());
+            orderDb.setAmount(order.getAmount());
+            orderDb.setOrderNumber(order.getOrderNumber());
+            orderDb.setNotes(order.getNotes());
+            orderDb.setProducts(order.getProducts());
+            orderDb.setTable(order.getTable());
+            orderDb.setSuggestiveSales(order.getSuggestiveSales());
+            orderDb.setQuantityOfItens(order.getQuantityOfItens());
+            orderDb.setUserName(order.getUserName());
 
             orderRepository.save(orderDb);
         } catch (Exception e) {
